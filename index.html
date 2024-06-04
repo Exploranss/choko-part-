@@ -1,4 +1,3 @@
-html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -20,8 +19,11 @@ html
         }
         .container {
             padding: 20px;
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
         }
         .product {
             background-color: white;
@@ -29,9 +31,40 @@ html
             border-radius: 5px;
             padding: 15px;
             margin-bottom: 20px;
+            width: 48%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .product img {
+            width: 500px;
+            height: 500px;
+            object-fit: cover;
+            margin-bottom: 10px;
         }
         .product h2 {
-            margin-top: 0;
+            margin: 10px 0;
+            font-size: 18px;
+            text-align: center;
+        }
+        .product p {
+            margin: 5px 0;
+            font-size: 16px;
+            text-align: center;
+        }
+        .product .price {
+            font-weight: bold;
+            color: #6b4226;
+        }
+        .product .buy-button {
+            background-color: #6b4226;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
         }
         footer {
             background-color: #6b4226;
@@ -50,111 +83,112 @@ html
     </header>
     <div class="container">
         <div class="product">
-            <h2>Нутелла премиум</h2>
-            <p>Цена: 245 руб.</p>
-        </div>
-        <div class="product">
-            <h2>Нутелла премиум с цельным фундуком</h2>
-            <p>Цена: 275 руб.</p>
-        </div>
-        <div class="product">
-            <h2>Нутелла</h2>
-            <p>Цена: 295 руб.</p>
-        </div>
-        <div class="product">
-            <h2>Нутелла с цельным фундуком</h2>
-            <p>Цена: 335 руб.</p>
-        </div>
-        <div class="product">
-            <h2>Киндер злаки</h2>
-            <p>Цена: 250 руб.</p>
-        </div>
-        <div class="product">
-            <h2>Киндер буэно</h2>
-            <p>Цена: 240 руб.</p>
-        </div>
-        <div class="product">
-            <h2>Сникерс</h2>
-            <p>Цена: 250 руб.</p>
-        </div>
-        <div class="product">
-            <h2>Марс</h2>
-            <p>Цена: 240 руб.</p>
-        </div>
-        <div class="product">
+            <img src="https://sun9-66.userapi.com/impg/OEsKdfFJ5yceaWoq9uWZorBtAWfCStNGKEFwqQ/q1-A7uEBnbE.jpg?size=807x538&quality=95&sign=8ff23012d889a8fb1614d6cf1ff873e2&c_uniq_tag=mjEulvb53DbaymrbfMSNGYKnuryfP4s9kIg2BjhBaP0&type=album" alt="Мальтизерс">
             <h2>Мальтизерс</h2>
-            <p>Цена: 240 руб.</p>
+            <p class="price">440 руб.</p>
+            <button class="buy-button">Купить</button>
         </div>
         <div class="product">
-            <h2>Рафаэлло со вкусом малины</h2>
-            <p>Цена: 250 руб.</p>
+            <img src="mars.jpg" alt="Марс">
+            <h2>Марс</h2>
+            <p class="price">450 руб.</p>
+            <button class="buy-button">Купить</button>
         </div>
         <div class="product">
-            <h2>Рафаэлло</h2>
-            <p>Цена: 250 руб.</p>
-        </div>
-        <div class="product">
-            <h2>Баунти</h2>
-            <p>Цена: 240 руб.</п>
-        </div>
-        <div class="product">
+            <img src="kitkat.jpg" alt="Кит-Кат">
             <h2>Кит-Кат</h2>
-            <p>Цена: 240 руб.</p>
+            <p class="price">450 руб.</p>
+            <button class="buy-button">Купить</button>
         </div>
         <div class="product">
-            <h2>Твикс</h2>
-            <p>Цена: 250 руб.</p>
+            <img src="bounty.jpg" alt="Баунти">
+            <h2>Баунти</h2>
+            <p class="price">450 руб.</p>
+            <button class="buy-button">Купить</button>
         </div>
         <div class="product">
-            <h2>Ферреро</h2>
-            <п>Цена: 260 руб.</п>
-        </div>
-        <div class="product">
-            <h2>ММДМС</h2>
-            <p>Цена: 270 руб.</p>
-        </div>
-        <div class="product">
+            <img src="milka_coconut.jpg" alt="Милка кокос">
             <h2>Милка кокос</h2>
-            <p>Цена: 240 руб.</p>
+            <p class="price">450 руб.</p>
+            <button class="buy-button">Купить</button>
         </div>
         <div class="product">
+            <img src="milka_fruit.jpg" alt="Милка фруктовая">
             <h2>Милка фруктовая</h2>
-            <п>Цена: 240 руб.</п>
+            <p class="price">450 руб.</p>
+            <button class="buy-button">Купить</button>
         </div>
         <div class="product">
+            <img src="milka_orange.jpg" alt="Милка со вкусом апельсина">
             <h2>Милка со вкусом апельсина</h2>
-            <p>Цена: 240 руб.</p>
+            <p class="price">450 руб.</п>
+            <button class="buy-button">Купить</button>
         </div>
         <div class="product">
+            <img src="milka_lemon.jpg" alt="Милка со вкусом лимона">
             <h2>Милка со вкусом лимона</h2>
-            <p>Цена: 240 руб.</p>
+            <p class="price">450 руб.</p>
+            <button class="buy-button">Купить</button>
         </div>
         <div class="product">
-            <h2>Сороконожки</h2>
-            <p>Цена: 140 руб.</p></div>
-        <div class="product">
-            <h2>Змейки</h2>
-            <p>Цена: 160 руб.</p>
+            <img src="twix.jpg" alt="Твикс">
+            <h2>Твикс</h2>
+            <p class="price">460 руб.</p>
+            <button class="buy-button">Купить</button>
         </div>
         <div class="product">
-            <h2>Змейки в посыпке</h2>
-            <p>Цена: 180 руб.</p>
+            <img src="snickers.jpg" alt="Сникерс">
+            <h2>Сникерс</h2>
+            <p class="price">460 руб.</p>
+            <button class="buy-button">Купить</button>
         </div>
         <div class="product">
-            <h2>Бегемотики Бонди</h2>
-            <p>Цена: 165 руб.</p>
+            <img src="rafaello.jpg" alt="Рафаэлло">
+            <h2>Рафаэлло</h2>
+            <p class="price">460 руб.</p>
+            <button class="buy-button">Купить</button>
         </div>
         <div class="product">
-            <h2>Колечки со вкусом кока-колы</h2>
-            <p>Цена: 170 руб.</p>
+            <img src="rafaello_raspberry.jpg" alt="Рафаэлло со вкусом малины">
+            <h2>Рафаэлло со вкусом малины</h2>
+            <p class="price">460 руб.</п>
+            <button class="buy-button">Купить</button>
         </div>
         <div class="product">
-            <h2>Ягоды (малина/черника)</h2>
-            <p>Цена: 165 руб.</p>
+            <img src="kinder_zlaki.jpg" alt="Киндер злаки">
+            <h2>Киндер злаки</h2>
+            <p class="price">460 руб.</p>
+            <button class="buy-button">Купить</button>
         </div>
         <div class="product">
-            <h2>Бутылочки</h2>
-            <p>Цена: 155 руб.</p>
+            <img src="kinder_bueno.jpg" alt="Киндер буэно">
+            <h2>Киндер буэно</h2>
+            <p class="price">460 руб.</p>
+            <button class="buy-button">Купить</button>
+        </div>
+        <div class="product">
+            <img src="nutella_premium.jpg" alt="Нутелла премиум">
+            <h2>Нутелла премиум</h2>
+            <p class="price">450 руб.</p>
+            <button class="buy-button">Купить</button>
+        </div>
+        <div class="product">
+            <img src="ferrero.jpg" alt="Ферреро">
+            <h2>Ферреро</h2>
+            <p class="price">480 руб.</p>
+            <button class="buy-button">Купить</button>
+        </div>
+        <div class="product">
+            <img src="mms.jpg" alt="ММДМС">
+            <h2>ММДМС</h2>
+            <p class="price">490 руб.</p>
+            <button class="buy-button">Купить</button>
+        </div>
+        <div class="product">
+            <img src="nutella_premium_hazelnut.jpg" alt="Нутелла премиум с цельным фундуком">
+            <h2>Нутелла премиум с цельным фундуком</h2>
+            <p class="price">490 руб.</п>
+            <button class="buy-button">Купить</button>
         </div>
     </div>
     <footer>
