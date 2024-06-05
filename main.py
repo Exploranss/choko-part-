@@ -25,9 +25,14 @@ async def web_app(callback_query):
         message += f"Позиция: {position}\n"
         message += f"Стоимость: {item['price']}\n\n"
     message += f"Общая стоимость товаров: {parsed_data['totalPrice']}"
-    await bot.send_message(callback_query.from_user.id,f""" {message}
+    await bot.send_message(callback_query.from_user.id,f"""
+{message}
 """)
 
+    await bot.send_message(callback_query.from_user.id, f"""
+новый заказ
+{message}
+    """)
 async def main():
     await dp.start_polling(bot)
 if __name__ == '__main__':
