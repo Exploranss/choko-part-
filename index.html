@@ -37,6 +37,19 @@
             flex-direction: column;
             align-items: center;
         }
+        #form {
+            display: none;
+            text-align:center;
+        }
+        input{
+            width: 90%;
+            outline: None;
+            margin: 10px 5%;
+            padding: 15px;
+            font-size: 14px;
+            border: 2px solid silver;
+            border-radius: 5px;
+        }
         .product img {
             width: 100px;
             height: 100px;
@@ -145,7 +158,7 @@
         <div class="product">
             <img src="https://sun9-34.userapi.com/impg/twS7BHfgAKahQxsXkFJr4VPWpmS5aSBZ5UGvQw/KNf6TcnXpYw.jpg?size=807x538&quality=95&sign=d5797e9e1155400eae423c3f1b684054&c_uniq_tag=QeT8liTHf4__QMPrj6MiQIqBIbgadmCUKTzEWa-rz2I&type=album" alt="Рафаэлло со вкусом малины">
             <h2>Рафаэлло со вкусом малины</h2>
-            <p class="price">460 руб.</п>
+            <p class="price">460 руб.</p>
             <button class="buy-button">Купить</button>
         </div>
         <div class="product">
@@ -175,12 +188,31 @@
         <div class="product">
             <img src="https://sun9-5.userapi.com/impg/1mld2qqxU0vbPwIFTgbEGkYFtOjLHAVeIJ7Tjg/Cehp-1v_4js.jpg?size=807x538&quality=95&sign=c980b5c98c3fee76b4264b5ea84d50ab&c_uniq_tag=4A0k0cGQqNnSfpxSaaRVEtx7gmCb-RXrEOvt2s-xfcs&type=album" alt="Нутелла премиум с цельным фундуком">
             <h2>Нутелла с цельным фундуком</h2>
-            <p class="price">490 руб.</п>
+            <p class="price">490 руб.</p>
             <button class="buy-button">Купить</button>
         </div>
     </div>
+    <form id = "form">
+        <input type="text" placeholder="Имя" id = "user_name">
+        <input type="text" placeholder="Email" id = "user_email">
+        <input type="text" placeholder="Телефон" id = "user_phone">
+        <button id = "order">Оформить</button>
+    </form>
     <footer>
         <p>© 2024 Шокопаста. Все права защищены.</p>
     </footer>
+    <script src = "https://telegram.org/js/telegram-web-app.js"><<script !src=""></script>>
+    <script>
+        let tg = window.telegram.webapp;
+        let buy = document.getElementbyId("buy-button")
+        
+        buy.addEventListener("click",() => {
+            document.getelementById("main").style.display = "None"
+            document.getelementById("form").style.display = ""
+            document.getelementById("user_name").value = tg.initdataUnsafe.user.first_name + " " + tg.initdataUnsafe.user.last_name
+        });
+        order.addEventListener("click",() => {
+            tg.close();
+    </script>    
 </body>
 </html>
