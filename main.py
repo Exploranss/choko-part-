@@ -11,7 +11,7 @@ dp = Dispatcher()
 @dp.message(Command("start"))
 async def start(message: types.Message, state: FSMContext):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, keyboard=[
-        [types.KeyboardButton(text='Выбрать товар', web_app=WebAppInfo(url='https://exploranss.github.io /'))]
+        [types.KeyboardButton(text='Выбрать товар', web_app=WebAppInfo(url='https://exploranss.github.io/'))]
     ])
     await message.answer("Добро пожаловать, купите пасту!", reply_markup=markup)
 
@@ -25,15 +25,12 @@ async def web_app(callback_query):
         message += f"Позиция: {position}\n"
         message += f"Стоимость: {item['price']}\n\n"
     message += f"Общая стоимость товаров: {parsed_data['totalPrice']}"
-    await bot.send_message(callback_query.from_user.id,f"""
-{message}
-""")
+    await bot.send_message(callback_query.from_user.id, f"{message}")
 
-    await bot.send_message(callback_query.from_user.id, f"""
-новый заказ
-{message}
-    """)
+    await bot.send_message(callback_query.from_user.id, f"новый заказ\n{message}")
+
 async def main():
     await dp.start_polling(bot)
+
 if __name__ == '__main__':
     asyncio.run(main())
