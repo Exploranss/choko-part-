@@ -1,12 +1,8 @@
 let tg = window.Telegram.WebApp;
 
 tg.expand();
-
-tg.MainButton.isActive = "true"
-
-
-
-
+tg.mainButton.text_color = "#FFFFFF"
+tg.mainButton.Button_color = "2cab37"
 let items = [];
 
 function toggleItem(btn, itemId, price) {
