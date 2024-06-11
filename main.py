@@ -1,21 +1,21 @@
 import asyncio
 import json
 
-from aiogram import Bot, Dispatcher, types
-from aiogram.filters.command import Command
+from aiogram import types
+from aiogram import Bot, Dispatcher
 from aiogram.fsm.context import FSMContext
+from aiogram.filters.command import Command
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, WebAppInfo
 
 
-bot = Bot('7317590523:AAE0JAOK5AJonosZMvIDlfM5rxTS43bTeKw')
+bot = Bot(token="7317590523:AAE0JAOK5AJonosZMvIDlfM5rxTS43bTeKw")
 dp = Dispatcher()
 
-@dp.message(Command("start"))
-async def start(message: types.Message, state: FSMContext):
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, keyboard=[
-        [types.KeyboardButton(text='Выбрать товар', web_app=WebAppInfo(url='https://exploranss.github.io /'))]
-    ])
-    await message.answer("Добро пожаловать, купите пасту!", reply_markup=markup)
+@dp.message(Command('start'))
+async def start(message: types.Message, state: FSMContext ):
+    item1 = KeyboardButton(text='Выбрать товар', web_app=WebAppInfo(url='https://exploranss.github.io /'))
+    keyboard = ReplyKeyboardMarkup(keyboard=[[item1]],resize_keyboard=True)
+    await bot.send_message(message.from_user.id,"Добро пожаловать, купите пасту!", reply_markup=keyboard,parse_mode="Markdown")
 
 @dp.message()
 async def web_app(callback_query):
@@ -29,14 +29,9 @@ async def web_app(callback_query):
 
     message += f"Общая стоимость товаров: {parsed_data['totalPrice']}"
 
-    await bot.send_message(callback_query.from_user.id,f"""
-{message}
-""")
+    await bot.send_message(callback_query.from_user.id,f"""{message}""")
 
-    await bot.send_message('-4245618055', f"""
-новый заказ
-{message}
-    """)
+    await bot.send_message('-4245618055', f"""новый заказ {message}""")
 async def main():
     await dp.start_polling(bot)
 if __name__ == '__main__':
