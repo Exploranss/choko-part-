@@ -70,33 +70,33 @@ document.getElementById("btn6").addEventListener("click", function() {
     toggleItem(this, 'item6', 450);
 });
 document.getElementById("btn7").addEventListener("click", function() {
-    toggleItem(this, 'item1', 450);
+    toggleItem(this, 'item7', 450);
 });
 document.getElementById("btn8").addEventListener("click", function() {
-    toggleItem(this, 'item1', 460);
+    toggleItem(this, 'item8', 460);
 });
 document.getElementById("btn9").addEventListener("click", function() {
-    toggleItem(this, 'item1', 460);
+    toggleItem(this, 'item9', 460);
 });
 document.getElementById("btn10").addEventListener("click", function() {
-    toggleItem(this, 'item1', 460);
+    toggleItem(this, 'item10', 460);
 });
 document.getElementById("btn11").addEventListener("click", function() {
-    toggleItem(this, 'item1', 460);
+    toggleItem(this, 'item11', 460);
 });
 document.getElementById("btn12").addEventListener("click", function() {
-    toggleItem(this, 'item1', 460);
+    toggleItem(this, 'item12', 460);
 });
 document.getElementById("btn13").addEventListener("click", function() {
-    toggleItem(this, 'item1', 460);
+    toggleItem(this, 'item13', 460);
 });
 document.getElementById("btn14").addEventListener("click", function() {
-    toggleItem(this, 'item1', 480);
+    toggleItem(this, 'item14', 480);
 });
 document.getElementById("btn15").addEventListener("click", function() {
-    toggleItem(this, 'item1', 490);
+    toggleItem(this, 'item15', 490);
 });
 document.getElementById("btn16").addEventListener("click", function() {
-    toggleItem(this, 'item1', 490);
+    toggleItem(this, 'item16', 490);
 });
 
