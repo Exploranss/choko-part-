@@ -26,7 +26,7 @@ async def web_app(callback_query):
     message = ""
     for i, item in enumerate(parsed_data['items'], start=1):
         position = int(item['id'].replace('item',''))
-        message += f"Паста {position}\n"
+        message += f"Позиция {position}\n"
         message += f"Стоимость: {item['price']}\n\n"
 
     message += f"Общая стоимость товаров: {parsed_data['totalPrice']}"
