@@ -34,11 +34,10 @@ async def web_app(callback_query):
     await bot.send_message(callback_query.from_user.id,f"""
 {message}
 """)
-    user_id = message.from_user.id
+    
     await bot.send_message('-1002203523203', f"""
 новый заказ 
 {message}
-{user_id}
     """)
 async def main():
     await dp.start_polling(bot)
