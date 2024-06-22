@@ -11,11 +11,13 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, WebAppInfo
 bot = Bot(token="7317590523:AAE0JAOK5AJonosZMvIDlfM5rxTS43bTeKw")
 dp = Dispatcher()
 
+
 @dp.message(Command('start'))
 async def start(message: types.Message, state: FSMContext):
     item1 = KeyboardButton(text='Выбрать товар', web_app=WebAppInfo(url='https://exploranss.github.io/'))
     keyboard = ReplyKeyboardMarkup(keyboard=[[item1]],resize_keyboard=True)
     await bot.send_message(message.from_user.id,"Добро пожаловать, купите пасту!", reply_markup=keyboard,parse_mode="Markdown")
+    
 
 @dp.message()
 async def web_app(callback_query):
@@ -24,7 +26,7 @@ async def web_app(callback_query):
     message = ""
     for i, item in enumerate(parsed_data['items'], start=1):
         position = int(item['id'].replace('item',''))
-        message += f"Позиция {position}\n"
+        message += f"Паста {position}\n"
         message += f"Стоимость: {item['price']}\n\n"
 
     message += f"Общая стоимость товаров: {parsed_data['totalPrice']}"
@@ -32,10 +34,11 @@ async def web_app(callback_query):
     await bot.send_message(callback_query.from_user.id,f"""
 {message}
 """)
-
+    user_id = message.from_user.id
     await bot.send_message('-1002203523203', f"""
 новый заказ 
 {message}
+{user_id}
     """)
 async def main():
     await dp.start_polling(bot)

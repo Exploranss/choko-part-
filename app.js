@@ -52,22 +52,22 @@ function calculateTotalPrice() {
 }
 
 document.getElementById("btn1").addEventListener("click", function() {
-    toggleItem(this, 'item1', 450);
+    toggleItem(this, 'item1', 440);
 });
 document.getElementById("btn2").addEventListener("click", function() {
-    toggleItem(this, 'item2', 200);
+    toggleItem(this, 'item2', 450);
 });
 document.getElementById("btn3").addEventListener("click", function() {
-    toggleItem(this, 'item3', 300);
+    toggleItem(this, 'item3', 450);
 });
 document.getElementById("btn4").addEventListener("click", function() {
-    toggleItem(this, 'item4', 400);
+    toggleItem(this, 'item4', 450);
 });
 document.getElementById("btn5").addEventListener("click", function() {
-    toggleItem(this, 'item5', 500);
+    toggleItem(this, 'item5', 450);
 });
 document.getElementById("btn6").addEventListener("click", function() {
-    toggleItem(this, 'item6', 600);
+    toggleItem(this, 'item6', 450);
 });
 document.getElementById("btn7").addEventListener("click", function() {
     toggleItem(this, 'item1', 450);
