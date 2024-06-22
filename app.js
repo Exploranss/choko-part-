@@ -16,7 +16,7 @@ function toggleItem(btn, itemId, price) {
         btn.innerText = "Удалить из корзины";
         let totalPrice = items.reduce((total, item) => total + item.price, 0);
         if (totalPrice > 0) {
-            tg.MainButton.setText('Сделать заказ');
+            tg.MainButton.setText('Цена товаров: ${totalPrice}');
             if (!tg.MainButton.isVisible) {
                 tg.MainButton.show();
             }
