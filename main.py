@@ -21,6 +21,7 @@ async def start(message: types.Message, state: FSMContext):
 
 @dp.message()
 async def web_app(callback_query):
+    user_id = message.from_user.id
     json_data = callback_query.web_app_data.data
     parsed_data = json.loads(json_data)
     message = ""
@@ -38,6 +39,7 @@ async def web_app(callback_query):
     await bot.send_message('-1002203523203', f"""
 новый заказ 
 {message}
+{user_id}
     """)
 async def main():
     await dp.start_polling(bot)
