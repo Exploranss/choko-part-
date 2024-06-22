@@ -30,7 +30,7 @@ function toggleItem(btn, itemId, price) {
         btn.innerText = "Добавить в корзину";
         let totalPrice = items.reduce((total, item) => total + item.price, 0);
         if (totalPrice > 0) {
-            tg.MainButton.setText('Общая цена товаров: ${totalPrice}');
+            tg.MainButton.setText('Cделать заказ');
             if (!tg.MainButton.isVisible) {
                 tg.MainButton.show();
             }
@@ -69,3 +69,34 @@ document.getElementById("btn5").addEventListener("click", function() {
 document.getElementById("btn6").addEventListener("click", function() {
     toggleItem(this, 'item6', 600);
 });
+document.getElementById("btn7").addEventListener("click", function() {
+    toggleItem(this, 'item1', 450);
+});
+document.getElementById("btn8").addEventListener("click", function() {
+    toggleItem(this, 'item1', 460);
+});
+document.getElementById("btn9").addEventListener("click", function() {
+    toggleItem(this, 'item1', 460);
+});
+document.getElementById("btn10").addEventListener("click", function() {
+    toggleItem(this, 'item1', 460);
+});
+document.getElementById("btn11").addEventListener("click", function() {
+    toggleItem(this, 'item1', 460);
+});
+document.getElementById("btn12").addEventListener("click", function() {
+    toggleItem(this, 'item1', 460);
+});
+document.getElementById("btn13").addEventListener("click", function() {
+    toggleItem(this, 'item1', 460);
+});
+document.getElementById("btn14").addEventListener("click", function() {
+    toggleItem(this, 'item1', 480);
+});
+document.getElementById("btn15").addEventListener("click", function() {
+    toggleItem(this, 'item1', 490);
+});
+document.getElementById("btn16").addEventListener("click", function() {
+    toggleItem(this, 'item1', 490);
+});
+
