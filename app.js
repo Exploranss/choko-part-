@@ -2,6 +2,9 @@ let tg = window.Telegram.WebApp;
 
 tg.expand();
 
+tg.MainButton.textColor = '#FFFFFF'
+tg.MainButton.color = '#2cab37'
+
 let items = [];
 
 function toggleItem(btn, itemId, price) {
@@ -13,12 +16,12 @@ function toggleItem(btn, itemId, price) {
         btn.innerText = "Удалить из корзины";
         let totalPrice = items.reduce((total, item) => total + item.price, 0);
         if (totalPrice > 0) {
-            tg.mainButton.setText(`Общая цена товаров: ${totalPrice}`);
-            if (!tg.mainButton.isVisible) {
-                tg.mainButton.show();
+            tg.MainButton.setText('Общая цена товаров: ${totalPrice}');
+            if (!tg.MainButton.isVisible) {
+                tg.MainButton.show();
             }
         } else {
-            tg.mainButton.hide();
+            tg.MainButton.hide();
         }
     } else {
         let index = items.indexOf(item);
@@ -27,12 +30,12 @@ function toggleItem(btn, itemId, price) {
         btn.innerText = "Добавить в корзину";
         let totalPrice = items.reduce((total, item) => total + item.price, 0);
         if (totalPrice > 0) {
-            tg.mainButton.setText(`Общая цена товаров: ${totalPrice}`);
-            if (!tg.mainButton.isVisible) {
-                tg.mainButton.show();
+            tg.MainButton.setText('Общая цена товаров: ${totalPrice}');
+            if (!tg.MainButton.isVisible) {
+                tg.MainButton.show();
             }
         } else {
-            tg.mainButton.hide();
+            tg.MainButton.hide();
         }
     }
 }
