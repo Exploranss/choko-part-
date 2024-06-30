@@ -2,43 +2,44 @@ let tg = window.Telegram.WebApp;
 
 tg.expand();
 
-tg.MainButton.textColor = '#FFFFFF'
-tg.MainButton.color = '#2cab37'
+tg.MainButton.textColor = '#FFFFFF';
+tg.MainButton.color = '#2cab37';
 
 let items = [];
 
-function toggleItem(btn, itemId, price) {
+function updateItemQuantity(itemId, price, quantity) {
     let item = items.find(i => i.id === itemId);
     if (!item) {
-        let newItem = { id: itemId, price: price };
-        items.push(newItem);
-        btn.classList.add('added-to-cart');
-        btn.innerText = "Удалить из корзины";
-        let totalPrice = items.reduce((total, item) => total + item.price, 0);
-        if (totalPrice > 0) {
-            tg.MainButton.setText('Сделать  заказ');
-            if (!tg.MainButton.isVisible) {
-                tg.MainButton.show();
-            }
-        } else {
-            tg.MainButton.hide();
+        if (quantity > 0) {
+            let newItem = { id: itemId, price: price, quantity: quantity };
+            items.push(newItem);
         }
     } else {
-        let index = items.indexOf(item);
-        items.splice(index, 1);
-        btn.classList.remove('added-to-cart');
-        btn.innerText = "Добавить в корзину";
-        let totalPrice = items.reduce((total, item) => total + item.price, 0);
-        if (totalPrice > 0) {
-            tg.MainButton.setText('Cделать заказ');
-            if (!tg.MainButton.isVisible) {
-                tg.MainButton.show();
-            }
-        } else {
-            tg.MainButton.hide();
+        item.quantity = quantity;
+        if (item.quantity <= 0) {
+            let index = items.indexOf(item);
+            items.splice(index, 1);
         }
     }
+    updateMainButton();
 }
+
+function updateMainButton() {
+    let totalPrice = calculateTotalPrice();
+    if (totalPrice > 0) {
+        tg.MainButton.setText('Сделать заказ');
+        if (!tg.MainButton.isVisible) {
+            tg.MainButton.show();
+        }
+    } else {
+        tg.MainButton.hide();
+    }
+}
+
+function calculateTotalPrice() {
+    return items.reduce((total, item) => total + item.price * item.quantity, 0);
+}
+
 Telegram.WebApp.onEvent("mainButtonClicked", function() {
     let data = {
         items: items,
@@ -47,56 +48,101 @@ Telegram.WebApp.onEvent("mainButtonClicked", function() {
     tg.sendData(JSON.stringify(data));
 });
 
-function calculateTotalPrice() {
-    return items.reduce((total, item) => total + item.price, 0);
-}
-
-document.getElementById("btn1").addEventListener("click", function() {
-    toggleItem(this, 'item1', 440);
-});
-document.getElementById("btn2").addEventListener("click", function() {
-    toggleItem(this, 'item2', 450);
-});
-document.getElementById("btn3").addEventListener("click", function() {
-    toggleItem(this, 'item3', 450);
-});
-document.getElementById("btn4").addEventListener("click", function() {
-    toggleItem(this, 'item4', 450);
-});
-document.getElementById("btn5").addEventListener("click", function() {
-    toggleItem(this, 'item5', 450);
-});
-document.getElementById("btn6").addEventListener("click", function() {
-    toggleItem(this, 'item6', 450);
-});
-document.getElementById("btn7").addEventListener("click", function() {
-    toggleItem(this, 'item7', 450);
-});
-document.getElementById("btn8").addEventListener("click", function() {
-    toggleItem(this, 'item8', 460);
-});
-document.getElementById("btn9").addEventListener("click", function() {
-    toggleItem(this, 'item9', 460);
-});
-document.getElementById("btn10").addEventListener("click", function() {
-    toggleItem(this, 'item10', 460);
-});
-document.getElementById("btn11").addEventListener("click", function() {
-    toggleItem(this, 'item11', 460);
-});
-document.getElementById("btn12").addEventListener("click", function() {
-    toggleItem(this, 'item12', 460);
-});
-document.getElementById("btn13").addEventListener("click", function() {
-    toggleItem(this, 'item13', 460);
-});
-document.getElementById("btn14").addEventListener("click", function() {
-    toggleItem(this, 'item14', 480);
-});
-document.getElementById("btn15").addEventListener("click", function() {
-    toggleItem(this, 'item15', 490);
-});
-document.getElementById("btn16").addEventListener("click", function() {
-    toggleItem(this, 'item16', 490);
+document.querySelectorAll('.buy-button').forEach(button => {
+    button.addEventListener("click", function() {
+        this.style.display = 'none';
+        let quantityControls = this.closest('.product').querySelector('.quantity-controls');
+        quantityControls.style.display = 'flex';
+        let itemId = this.id;
+        let price = parseInt(this.closest('.product').querySelector('.price').innerText.replace(' руб.', ''));
+        updateItemQuantity(itemId, price, 1);
+        this.closest('.product').querySelector('.quantity-display').innerText = 1;
+    });
 });
 
+document.querySelectorAll('.increase-quantity').forEach(button => {
+    button.addEventListener("click", function() {
+        let itemId = this.dataset.id;
+        let price = parseInt(this.dataset.price);
+        let quantityElement = this.closest('.product').querySelector('.quantity-display');
+        let quantity = parseInt(quantityElement.innerText) + 1;
+        quantityElement.innerText = quantity;
+        updateItemQuantity(itemId, price, quantity);
+    });
+});
+
+document.querySelectorAll('.decrease-quantity').forEach(button => {
+    button.addEventListener("click", function() {
+        let itemId = this.dataset.id;
+        let price = parseInt(this.dataset.price);
+        let quantityElement = this.closest('.product').querySelector('.quantity-display');
+        let quantity = parseInt(quantityElement.innerText) - 1;
+        if (quantity >= 0) {
+            quantityElement.innerText = quantity;
+            updateItemQuantity(itemId, price, quantity);
+        }
+    });
+});
+
+document.querySelectorAll('.product img').forEach(img => {
+    img.addEventListener("click", function() {
+        let product = this.closest('.product');
+        let title = product.dataset.title;
+        let description = product.dataset.description;
+        let price = product.dataset.price;
+        let image = product.dataset.image;
+
+        document.getElementById('modalTitle').innerText = title;
+        document.getElementById('modalDescription').innerText = description;
+        document.getElementById('modalPrice').innerText = price + ' руб.';
+        document.getElementById('modalImage').src = image;
+
+        let modal = document.getElementById('productModal');
+        modal.style.display = "block";
+
+        document.getElementById('modalDecrease').dataset.id = product.id;
+        document.getElementById('modalIncrease').dataset.id = product.id;
+        document.getElementById('modalDecrease').dataset.price = price;
+        document.getElementById('modalIncrease').dataset.price = price;
+        document.getElementById('modalBuyButton').dataset.id = product.id;
+        document.getElementById('modalBuyButton').dataset.price = price;
+
+        document.getElementById('modalQuantityDisplay').innerText = '0';
+    });
+});
+
+document.querySelector('.close').addEventListener("click", function() {
+    let modal = document.getElementById('productModal');
+    modal.style.display = "none";
+});
+
+document.getElementById('modalIncrease').addEventListener("click", function() {
+    let itemId = this.dataset.id;
+    let price = parseInt(this.dataset.price);
+    let quantityElement = document.getElementById('modalQuantityDisplay');
+    let quantity = parseInt(quantityElement.innerText) + 1;
+    quantityElement.innerText = quantity;
+    updateItemQuantity(itemId, price, quantity);
+});
+
+document.getElementById('modalDecrease').addEventListener("click", function() {
+    let itemId = this.dataset.id;
+    let price = parseInt(this.dataset.price);
+    let quantityElement = document.getElementById('modalQuantityDisplay');
+    let quantity = parseInt(quantityElement.innerText) - 1;
+    if (quantity >= 0) {
+        quantityElement.innerText = quantity;
+        updateItemQuantity(itemId, price, quantity);
+    }
+});
+
+document.getElementById('modalBuyButton').addEventListener("click", function() {
+    let itemId = this.dataset.id;
+    let price = parseInt(this.dataset.price);
+    let quantityElement = document.getElementById('modalQuantityDisplay');
+    let quantity = parseInt(quantityElement.innerText);
+    updateItemQuantity(itemId, price, quantity);
+
+    let modal = document.getElementById('productModal');
+    modal.style.display = "none";
+});
