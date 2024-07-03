@@ -28,37 +28,29 @@
         .product {
             background-color: white;
             border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
+            border-radius: 5px;
+            padding: 15px;
             margin-bottom: 20px;
             width: 48%;
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
             align-items: center;
-            position: relative;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
-        }
-        .product:hover {
-            transform: translateY(-10px);
         }
         .product img {
-            width: 150px;
-            height: 150px;
+            width: 100px;
+            height: 100px;
             object-fit: cover;
-            border-radius: 10px;
             margin-bottom: 10px;
-            cursor: pointer;
         }
         .product h2 {
             margin: 10px 0;
-            font-size: 20px;
+            font-size: 18px;
             text-align: center;
         }
         .product p {
             margin: 5px 0;
-            font-size: 18px;
+            font-size: 16px;
             text-align: center;
         }
         .product .price {
@@ -73,116 +65,6 @@
             border-radius: 5px;
             cursor: pointer;
             text-align: center;
-            margin-top: 10px;
-            font-size: 16px;
-        }
-        .product .quantity-controls {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            margin-top: 10px;
-        }
-        .product .quantity-controls button {
-            background-color: #6b4226;
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 10px;
-            transition: background-color 0.2s;
-        }
-        .product .quantity-controls button:hover {
-            background-color: #8b5e3c;
-        }
-        .product .quantity-display {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #6b4226;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 50%;
-            font-size: 18px;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 500px;
-            border-radius: 10px;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .modal .quantity-controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 10px;
-        }
-        .modal .quantity-controls button {
-            background-color: #6b4226;
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 10px;
-            transition: background-color 0.2s;
-        }
-        .modal .quantity-controls button:hover {
-            background-color: #8b5e3c;
-        }
-        .modal .quantity-display {
-            background-color: #6b4226;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 50%;
-            font-size: 18px;
-        }
-        .modal .buy-button {
-            background-color: #6b4226;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            margin-top: 10px;
-            font-size: 16px;
         }
         footer {
             background-color: #6b4226;
@@ -200,39 +82,138 @@
         <h1>Шокопаста</h1>
     </header>
     <div class="container">
-        <!-- Repeat this block for each product -->
-        <div class="product" data-title="Product 1" data-description="Описание для Product 1" data-price="440" data-image="https://cache3.youla.io/files/images/780_780/5d/57/5d577bb2074b3e6c3359dfd6.jpg">
-            <img src="https://cache3.youla.io/files/images/780_780/5d/57/5d577bb2074b3e6c3359dfd6.jpg" alt="Product 1">
-            <h2>Product 1</h2>
-            <p class="price">440 руб.</p>
-            <div class="quantity-controls">
-                <button class="decrease-quantity" data-id="item1" data-price="440">-</button>
-                <button class="increase-quantity" data-id="item1" data-price="440">+</button>
+        <div class="product">
+            <div class="item" id="item1">
+                <img src="https://sun9-66.userapi.com/impg/OEsKdfFJ5yceaWoq9uWZorBtAWfCStNGKEFwqQ/q1-A7uEBnbE.jpg?size=807x538&quality=95&sign=8ff23012d889a8fb1614d6cf1ff873e2&c_uniq_tag=mjEulvb53DbaymrbfMSNGYKnuryfP4s9kIg2BjhBaP0&type=album" alt="Мальтизерс">
+                <h2>Мальтизерс</h2>
+                <p class="price">440 руб.</p>
+                <button class="buy-button" id="btn1" name="Мальтизерс">Купить</button>
             </div>
-            <button class="buy-button" id="btn1">Купить</button>
-            <div class="quantity-display">0</div>
         </div>
-        <!-- Add more products as needed -->
+        <div class="product">
+            <div class="item" id="item2">
+                <img src="https://sun9-8.userapi.com/impg/NGF1S8cL7QjSKhCXf7cfZX_j5C-tsW0WuZJ9Qw/C87w9Fal8Zo.jpg?size=807x538&quality=95&sign=9d66ab4767290b847ce4dd957e7a807b&c_uniq_tag=6ipuuVYZMmwo0gzlTg2ssDZ5ngIJeucT7fIC8sYc6n8&type=album" alt="Марс">
+                <h2>Марс</h2>
+                <p class="price">450 руб.</p>
+                <button class="buy-button"id="btn2">Купить</button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="item" id="item3">
+                <img src="https://sun9-70.userapi.com/impg/JilGsnsKY5e0S26HODOktAu-v0nmp5qcKHROrw/5eoJK0x6wNw.jpg?size=807x538&quality=95&sign=0eb4a1df46fc7e10e57782fb072f3c8a&c_uniq_tag=eTGKt9-0DvEiWDMOH8cn1F1b4wn3Jea1sz-jkD28Y8I&type=album" alt="Кит-Кат">
+                <h2>Кит-Кат</h2>
+                <p class="price">450 руб.</p>
+                <button class="buy-button"id="btn3">Купить</button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="item" id="item4">
+                <img src="https://sun9-19.userapi.com/impg/qTFvCqYTliPmvRJcKqnuObBrnYaFEfJol0ceBA/xbee9x4NhrQ.jpg?size=807x538&quality=95&sign=fcc589cf5eb11b5fed11af15407b5202&c_uniq_tag=z1HZUDXv2lksGC_h5ToJF--KAuOkf_7SYAD9jyNyPyI&type=album" alt="Баунти">
+                <h2>Баунти</h2>
+                <p class="price">450 руб.</p>
+                <button class="buy-button"id="btn4">Купить</button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="item" id="item5">
+                <img src="https://sun9-60.userapi.com/impg/Xojfd4a6pmBhxsi1qyxaetTldlRIWrwnb_i4Zw/nVt4loOwC_I.jpg?size=807x538&quality=95&sign=5daf5e5daa9a2d1630af06870e64b068&c_uniq_tag=TBGldfTIXQl8R4rCj-FNtGgZbbbk0-nu-y20pZZnD60&type=album" alt="Милка кокос">
+                <h2>Милка кокос</h2>
+                <p class="price">450 руб.</p>
+                <button class="buy-button"id="btn5">Купить</button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="item" id="item6">
+                <img src="https://sun9-62.userapi.com/impg/N7Obw6Sbvkd922KPPOb9eqbjJG1fFRVaywc_Fg/SY4u6GuxTns.jpg?size=807x538&quality=95&sign=70179294f0d31bf4f54adbeec7ffbb37&c_uniq_tag=1aBbl9hXbhJyjGUm6kShjrV5a0UhvVCNBCGJ1i09eKc&type=album" alt="Милка фруктовая">
+                <h2>Милка фруктовая</h2>
+                <p class="price">450 руб.</p>
+                <button class="buy-button"id="btn6">Купить</button>
+            </div>
+        </div>
+        <div class="product">
+             <div class="item" id="item7">
+                <img src="https://sun9-1.userapi.com/impg/V49lXdwKlQBPG6b2OeYHV_SkzsG4lK6q3OoOwA/IsoahfR6B0M.jpg?size=807x538&quality=95&sign=57acca4f0673e936182f64c13704ae92&c_uniq_tag=J-gJTuzvvuVZ5KoW9g2XfG8erQQcuQUXK7W7-efZeeE&type=album" alt="Нутелла премиум">
+                <h2>Нутелла</h2>
+                <p class="price">450 руб.</p>
+                <button class="buy-button"id="btn7">Купить</button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="item" id="item8">
+                <img src="https://sun9-13.userapi.com/impg/22morIIQ83E8pmZEYkuXrpP6ozPn-SfgPQS7Jw/T7271hwpuio.jpg?size=807x538&quality=95&sign=4ed85a1da144d00b799063dbb294425d&c_uniq_tag=fdqbvDS7k_pyWMCr4Dklu7dvr1-Qa3kAu7QpLDSnY9g&type=album" alt="Твикс">
+                <h2>Твикс</h2>
+                <p class="price">460 руб.</p>
+                <button class="buy-button"id="btn8">Купить</button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="item" id="item9">
+                <img src="https://sun9-39.userapi.com/impg/n3xz0RaKd30dFMUr-2huTFDKCz_afxnSZyarew/m0NqGCxyYVc.jpg?size=807x538&quality=95&sign=84da37158be8ddfdb5509ba7076b4714&c_uniq_tag=2GQtgfzj4pNl5Ujk1kkS6ZCH-8jFcDsTpLkIKyjAGOg&type=album" alt="Сникерс">
+                <h2>Сникерс</h2>
+                <p class="price">460 руб.</p>
+                <button class="buy-button"id="btn9">Купить</button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="item" id="item10">
+                <img src="https://sun9-63.userapi.com/impg/IjVPirCSWYjFUOvj8AHOI6sAUcmeLMwzamXwWA/DChH1yMGoCE.jpg?size=807x538&quality=95&sign=90c95eea645e5e1993ad0ed85ea7111e&c_uniq_tag=Ier-JxIoWRDjDedW1nIj9v0u-ZAhrPHE8OrwoG41BJs&type=album" alt="Рафаэлло">
+                <h2>Рафаэлло</h2>
+                <p class="price">460 руб.</p>
+                <button class="buy-button"id="btn10">Купить</button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="item" id="item11">
+                <img src="https://sun9-34.userapi.com/impg/twS7BHfgAKahQxsXkFJr4VPWpmS5aSBZ5UGvQw/KNf6TcnXpYw.jpg?size=807x538&quality=95&sign=d5797e9e1155400eae423c3f1b684054&c_uniq_tag=QeT8liTHf4__QMPrj6MiQIqBIbgadmCUKTzEWa-rz2I&type=album" alt="Рафаэлло со вкусом малины">
+                <h2>Рафаэлло со вкусом малины</h2>
+                <p class="price">460 руб.</p>
+                <button class="buy-button"id="btn11">Купить</button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="item" id="item12">
+                <img src="https://sun9-80.userapi.com/impg/Ulk43NjYu1HG_Sgeu2BGljK51SFYJaKedhhfSQ/dWqAdXcsZug.jpg?size=807x538&quality=95&sign=352a84ffef9fb5a58cbcc327c87750e0&c_uniq_tag=lcsrFwRV6lC7AVS51SMCa0pWNDSUvsfEoJmhTymfBoU&type=album" alt="Киндер злаки">
+                <h2>Киндер злаки</h2>
+                <p class="price">460 руб.</p>
+                <button class="buy-button"id="btn12">Купить</button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="item" id="item13">
+                <img src="https://sun9-64.userapi.com/impg/0-yK2PO7A9jLQA0osOE-87wyq_5iJP2ryhgfdQ/ccdw_uJkH3Q.jpg?size=807x538&quality=95&sign=4db76b370bb980546373ba13701b9d81&c_uniq_tag=SG0IiG4R_90eFhGmbf7BEjuSWy4LpeoE45zOUmFEqjY&type=album" alt="Киндер буэно">
+                <h2>Киндер буэно</h2>
+                <p class="price">460 руб.</p>
+                <button class="buy-button"id="btn13">Купить</button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="item" id="item14">
+                <img src="https://sun9-26.userapi.com/impg/gJVjvqnyomiJOAO8KMg6Md1r3gRhMER9CCQ9vw/zKMUycJjidg.jpg?size=807x538&quality=95&sign=36123acaaad9c56e6cebd6e4248b9013&c_uniq_tag=Pv94qT37uQuD8Wx17RsFh8tFsuJzfdrVDlRmqyZps10&type=album" alt="Ферреро">
+                <h2>Ферреро</h2>
+                <p class="price">480 руб.</p>
+                <button class="buy-button"id="btn14">Купить</button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="item" id="item15">
+                <img src="https://sun9-14.userapi.com/impg/_hJ-FubvtbueHaPHe8zDG_o1PSwUgtUSRxbnHA/XN_OfIoEoZs.jpg?size=807x538&quality=95&sign=51e7d9371031a882c3dd01f5894fbbd3&c_uniq_tag=3xaJ8aghPvQHeLYEXupwm12p4_FS_MHksaWtOV2kOTA&type=album" alt="ММДМС">
+                <h2>ММДМС</h2>
+                <p class="price">490 руб.</p>
+                <button class="buy-button"id="btn15">Купить</button>
+            </div>
+        </div>
+        <div class="product">
+            <div class="item" id="item16">
+                <img src="https://sun9-5.userapi.com/impg/1mld2qqxU0vbPwIFTgbEGkYFtOjLHAVeIJ7Tjg/Cehp-1v_4js.jpg?size=807x538&quality=95&sign=c980b5c98c3fee76b4264b5ea84d50ab&c_uniq_tag=4A0k0cGQqNnSfpxSaaRVEtx7gmCb-RXrEOvt2s-xfcs&type=album" alt="Нутелла премиум с цельным фундуком">
+                <h2>Нутелла с цельным фундуком</h2>
+                <p class="price">490 руб.</p>
+                <button class="buy-button"id="btn16">Купить</button>
+            </div>
+        </div>
     </div>
 
-    <!-- Modal -->
-    <div id="productModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 id="modalTitle"></h2>
-            <img id="modalImage" src="" alt="Product Image" style="width: 100%; height: auto;">
-            <p id="modalDescription"></p>
-            <p id="modalPrice"></p>
-            <div class="quantity-controls">
-                <button class="decrease-quantity" id="modalDecrease" data-id="" data-price="">-</button>
-                <div class="modal-quantity-display" id="modalQuantityDisplay">0</div>
-                <button class="increase-quantity" id="modalIncrease" data-id="" data-price="">+</button>
-            </div>
-            <button class="buy-button" id="modalBuyButton">Добавить в корзину</button>
-        </div>
-    </div>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="app.js"></script>
+    <script src = "app.js"></script>
 </body>
 </html>
