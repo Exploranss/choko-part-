@@ -8,7 +8,7 @@ from aiogram.filters.command import Command
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, WebAppInfo
 
 
-bot = Bot(token="7317590523:AAE0JAOK5AJonosZMvIDlfM5rxTS43bTeKw")
+bot = Bot(token="")
 dp = Dispatcher()
 
 
